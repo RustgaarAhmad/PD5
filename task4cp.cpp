@@ -1,7 +1,8 @@
 #include<iostream>
 #include<cmath>
+#include<string>
 using namespace std;
-int projectTimeCalculation(int n_hours, int days, int workers);
+string projectTimeCalculation(int n_hours, int days, int workers);
 main()
 {
     int n_hours, days, workers;
@@ -11,9 +12,9 @@ main()
     cin>> days;
     cout<< "Enter htee nuumber of all workers:";
     cin>> workers;
-    projectTimeCalculation(n_hours, days, workers);
+    cout<< projectTimeCalculation(n_hours, days, workers);
 }
-int projectTimeCalculation(int n_hours, int days, int workers)
+string projectTimeCalculation(int n_hours, int days, int workers)
 {
     int diff;
     int t_days  =days*10;
@@ -23,12 +24,14 @@ int projectTimeCalculation(int n_hours, int days, int workers)
     {
 
         diff = n_hours - p_hours;
-        cout<< "Not enough time! " << diff << " hours needed.";
+        string str1=to_string(diff);
+        return "Not enough time! " +str1+ " hours needed.";
     
     }
     if(p_hours > n_hours)
     {
         diff = p_hours - n_hours;
-        cout<< "YES!" << diff << " hours left.";
+        string str2=to_string(diff);
+        return "YES! " +str2+ " hours left.";
     }
 }
